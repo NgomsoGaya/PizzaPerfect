@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pizza Cart</title>
+  <script src="//unpkg.com/alpinejs" defer></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div x-data="counter">
+    <h1>Perfect Pizza</h1>
+
+    <div class="Cart">
+      <h2>Shopping Cart</h2>
+      <div x-show="small">
+        <p>Small R<span x-text="price.toFixed(2)"></span> : <span x-text="count">0</span> <button
+            @click="increment">+</button><button @click="decrement">-</button></p>
+      </div>
+
+      <div x-show="medium">
+        <p>Medium R<span x-text="price1.toFixed(2)"></span> : <span x-text="count1">0</span> <button
+            @click="increment1">+</button><button @click="decrement1">-</button></p>
+      </div>
+
+      <div x-show="large">
+        <p>Large R<span x-text="price2.toFixed(2)"></span> : <span x-text="count2">0</span> <button
+            @click="increment2">+</button><button @click="decrement2">-</button></p>
+      </div>
+
+
+      <p>Total Cost R<span x-text="totalPrice.toFixed(2)"></span></p>
+
+      <div x-show="successmsg">
+        <p x-text="success"></p>
+      </div>
+
+      <div x-show="failuremsg">
+        <p x-text="failure"></p>
+      </div>
+
+      <div x-show="paybtnbundle">
+
+        <div class="payment">
+          <p>Payment amount:<input type="text" x-model="payment"></p>
+        </div>
+        <button class="paybtn" @click="pay">Pay</button>
+
+      </div>
+      <div x-show="change">
+        <p>Change: R<span x-text="wallet.toFixed(2)"></span></p>
+      </div>
+      
+      <div x-show="checkbtn">
+        <button @click="checkout">Checkout</button>
+      </div>
+      <div x-show="checkoutmsg">
+        <p x-text="checkoutmessage"></p>
+      </div>
+      <div x-show="checkError">
+        <p x-text="checkOutError"></p>
+      </div>
+    </div>
+
+    <div class="Large">
+      <h3>Large Pizza</h3>
+      <img src="pizza.png" alt="">
+      <p>R87.99</p>
+      <P>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed, nemo?</P>
+      <button @click="buylarge">Buy</button>
+    </div>
+    <div class="Medium">
+      <h3>Medium Pizza</h3>
+      <img src="pizza.png" alt="">
+      <p>R58.99</p>
+      <P>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed, nemo?</P>
+      <button @click="buymedium">Buy</button>
+    </div>
+    <div class="Small">
+      <h3>Small Pizza</h3>
+      <img src="pizza.png" alt="">
+      <p>R31.99</p>
+      <P>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed, nemo?</P>
+      <button @click="buysmall">Buy</button>
+    </div>
+
+    <div class="footer">
+      <p>all copyrights are reserved</p>
+    </div>
+  </div>
+
+  <script src="counter.js"></script>
+  <script src="index.js"></script>
+</body>
+
+</html>
